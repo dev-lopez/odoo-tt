@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+    
+        <record id="spaceship_delete_only_inactive" model="ir.rule">
+            <field name="name">spaceship delete only incative</field>
+            <field name="model_id" ref='model_space_ship'></field>
+            <field name="domain_force">[('active','=',True)]</field>
+            <field name="perm_unlink" eval='0'></field>
+        </record>
+
+        
+    </data>
+    
+
+</odoo>

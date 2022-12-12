@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_space_mission_space_ship_admin,access_space_mission_space_ship,model_space_ship,group_space_mission_admin,1,1,1,1
+access_space_mission_space_ship_crew,access_space_mission_space_ship,model_space_ship,group_space_mission_crew,1,1,1,0
+access_space_mission_space_ship_passenger,access_space_mission_space_ship,model_space_ship,group_space_mission_passenger,1,0,0,0
