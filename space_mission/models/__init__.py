@@ -1,1 +1,1 @@
-from . import space_ship
+from . import space_ship, mission_info

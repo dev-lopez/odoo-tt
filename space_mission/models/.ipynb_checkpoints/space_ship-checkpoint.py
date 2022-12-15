@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
 class SpaceShip(models.Model):
@@ -24,3 +25,10 @@ class SpaceShip(models.Model):
     fuel_type = fields.Selection(selection=[('solid_fuel','Solid Fuel'),
                                             ('liquid_fuel', 'Liquid Fuel')],
                                  string='Fuel Type',)
+
+
+    @api.constrains(length, width)
+    def compare_dimensions(self):
+        for rec in self:
+            if rec.length < rec.width:
+                raise UserError('It is not a practical ship if the length is smaller than the width. Please use a ship more suitable for space travel')
