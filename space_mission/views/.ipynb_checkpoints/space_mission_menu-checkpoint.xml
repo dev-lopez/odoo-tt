@@ -12,22 +12,28 @@
         </field>
     </record>
 
+    <record id="mission_info_action" model="ir.actions.act_window">
+        <field name="name">Mission Info</field>
+        <field name="res_model">mission.info</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a Mission
+            </p>
+        </field>
+    </record>
+
     <menuitem
         id="space_mission_menu"
         name="Space Mission"
         sequence="1"/>
 
-    <menuitem
-        id="space_mission_submenu"
-        name="Space Mission"
-        parent="space_mission_menu"
-        sequence="2"/>
+    <menuitem id="space_mission_ship_submenu" name="Space Ship" parent="space_mission_menu" sequence="2"/>
 
-    <menuitem
-        id="space_ship_menu"
-        name="Space Ships"
-        action="space_ship_list_action"
-        parent="space_mission_submenu"
-        sequence="3"/>
+    <menuitem id="space_ship_menu" name="Space Ships" action="space_ship_list_action" parent="space_mission_ship_submenu" sequence="3"/>
 
+
+    <menuitem id="space_mission_info_submenu" name="Mission Info" parent="space_mission_menu" sequence="4"/>
+
+    <menuitem id="mission_info_menu" name="Mission Info" action="mission_info_action" parent="space_mission_info_submenu" sequence="5"/>
 </odoo>

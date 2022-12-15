@@ -16,6 +16,8 @@
         'security/space_mission_security.xml',
         'security/ir.model.access.csv',
         'views/space_mission_menu.xml',
+        'views/space_ship_view.xml',
+        'views/mission_info.xml',
     ],
     'demo': [
         'demo/space_mission_demo.xml',
@@ -23,7 +25,4 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'depends': ['base'],
-    'data': [],
-    'demo': [],
 }
