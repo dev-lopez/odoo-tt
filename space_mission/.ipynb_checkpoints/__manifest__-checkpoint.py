@@ -23,4 +23,7 @@
     'installable': True,
     'application': True,
     'auto_install': False,
+    'depends': ['base'],
+    'data': [],
+    'demo': [],
 }
