@@ -27,6 +27,8 @@ class MissionInfo(models.Model):
     security_crew = fields.Boolean(default=False, string='Crew')
     security_confirmed = fields.Boolean(default=False, compute='_get_security_checked', store=True, string='Security Checked', readonly=True)
     
+    project_ids = fields.One2many(comodel_name='project.project', inverse_name='mission_id')
+    captain_ids = fields.One2many(comodel_name='project.project', inverse_name='captain_id')
 
     @api.depends('launch_date','duration')
     def _compute_return_date(self):
