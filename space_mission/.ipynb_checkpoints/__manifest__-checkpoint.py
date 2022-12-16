@@ -19,9 +19,7 @@
         'views/space_ship_view.xml',
         'views/mission_info.xml',
     ],
-    'demo': [
-        'demo/space_mission_demo.xml',
-    ],
+    'demo': [ ],
     'installable': True,
     'application': True,
     'auto_install': False,
