@@ -9,7 +9,9 @@
                 <sheet>
                     <h1><field name="name" placeholder='Name of the Mission'/></h1>
                     <h3><field name="destiny" placeholder='Destination'/></h3>
-                    <field name="active" />
+                    <group>    
+                        <field name="active" />
+                    </group>
                     <group>
                         <separator string='Spaceship Info' />
                         <field name="spaceship_id" />
@@ -28,6 +30,7 @@
                             </group>
                         </page>
                         <page string="Security">
+                            <group>
                             <field name="security_engines" />
                             <field name="security_shields" />
                             <field name="security_power" />
@@ -35,6 +38,10 @@
                             <field name="security_weapons" />
                             <field name="security_crew" />
                             <field name="security_confirmed" />
+                            </group>
+                        </page>
+                        <page string="Projects">
+                            <field name='project_ids' />
                         </page>
                     </notebook>
                 </sheet>
