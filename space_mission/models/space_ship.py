@@ -27,7 +27,11 @@ class SpaceShip(models.Model):
                                  string='Fuel Type',)
 
 
-    @api.constrains(length, width)
+    crew_ids = fields.Many2many(comodel_name='res.partner', string='Crew')
+    mission_ids = fields.One2many(comodel_name='mission.info', inverse_name='spaceship_id')
+
+    
+    @api.constrains('length', 'width')
     def compare_dimensions(self):
         for rec in self:
             if rec.length < rec.width:
