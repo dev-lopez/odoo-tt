@@ -16,6 +16,17 @@ class MissionInfo(models.Model):
     duration = fields.Float(string='Mission duration', default='1')
     return_date = fields.Datetime(string='Return Date', compute='_compute_return_date', inverse='_inverse_return_date')
 
+    
+    fuel_needed = fields.Integer(string='Fuel needed', default='0')
+    engine_count = fields.Integer(string='Engine Count', default='1')
+    security_engines = fields.Boolean(default=False, string='Engines')
+    security_shields = fields.Boolean(default=False, string='Shields')
+    security_power = fields.Boolean(default=False, string='Power')
+    security_thrusters = fields.Boolean(default=False, string='Thrusters')
+    security_weapons = fields.Boolean(default=False, string='Weapons')
+    security_crew = fields.Boolean(default=False, string='Crew')
+    security_confirmed = fields.Boolean(default=False, compute='_get_security_checked', store=True, string='Security Checked', readonly=True)
+    
 
     @api.depends('launch_date','duration')
     def _compute_return_date(self):
@@ -29,6 +40,15 @@ class MissionInfo(models.Model):
     def _inverse_return_date(self):
         for rec in self:
             if rec.launch_date and rec.return_date:
-                rec.duration = (rec.return_day -rec.launch_date).days
+                rec.duration = (rec.return_date -rec.launch_date).days
             else:
                 continue
+                
+    @api.depends('security_engines','security_shields','security_power','security_thrusters','security_weapons','security_crew')
+    def _get_security_checked(self):
+        for rec in self:
+            if rec.security_engines and rec.security_shields and rec.security_power and rec.security_thrusters and rec.security_weapons and rec.security_crew:
+                rec.security_confirmed = True
+            else:
+                rec.security_confirmed = False
+    

@@ -9,7 +9,7 @@
     'author': 'Alexis Lopez',
     'category': 'Traveling',
     'version': '1.0.0',
-    'licence': 'LGPL-3',
+    'license': 'LGPL-3',
     'depends': ['base'],
     'data': [
         'security/space_mission_groups.xml',

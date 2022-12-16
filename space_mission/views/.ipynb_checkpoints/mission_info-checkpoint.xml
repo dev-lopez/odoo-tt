@@ -27,6 +27,15 @@
                                 
                             </group>
                         </page>
+                        <page string="Security">
+                            <field name="security_engines" />
+                            <field name="security_shields" />
+                            <field name="security_power" />
+                            <field name="security_thrusters" />
+                            <field name="security_weapons" />
+                            <field name="security_crew" />
+                            <field name="security_confirmed" />
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -48,6 +57,14 @@
         </field>
     </record>
 
-
+    <record id="mission_info_view_graph" model="ir.ui.view">
+        <field name="name">mission.info.view.graph</field>
+        <field name="model">mission.info</field>
+        <field name="arch" type="xml">
+            <graph string="Mission Metrics" type="pie" sample='1'>
+                <field name="security_confirmed" />
+            </graph>
+        </field>
+    </record>
 
 </odoo>

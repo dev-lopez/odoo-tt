@@ -34,9 +34,27 @@
                         <field name="height" />
                         <field name="fuel_type" />
                     </group>
+                    <notebook>
+                        <page string="Members">
+                            <field name="crew_ids" />
+                        </page>
+                        <page string="Mission">
+                            <field name="mission_ids" />
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <record id="space_ship_view_graph" model="ir.ui.view">
+        <field name="name">space.ship.view.graph</field>
+        <field name="model">space.ship</field>
+        <field name="arch" type="xml">
+            <graph string="SpaceShip Metrics" type="bar" sample='1'>
+                <field name="type" />
+            </graph>
+        </field>
+    </record>
+    
 </odoo>
