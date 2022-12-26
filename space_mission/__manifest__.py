@@ -11,7 +11,8 @@
     'version': '1.0.0',
     'license': 'LGPL-3',
     'depends': ['base',
-               'project'],
+               'project',],
+
     'data': [
         'security/space_mission_groups.xml',
         'security/space_mission_security.xml',
