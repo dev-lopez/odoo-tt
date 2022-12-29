@@ -12,6 +12,7 @@
     'license': 'LGPL-3',
     'depends': ['base',
                'project',],
+
     'data': [
         'security/space_mission_groups.xml',
         'security/space_mission_security.xml',
@@ -20,6 +21,7 @@
         'views/space_ship_view.xml',
         'views/mission_info.xml',
         'views/project_views_inherit.xml',
+        'wizard/create_project_views.xml',
     ],
     'demo': [ ],
     'installable': True,
