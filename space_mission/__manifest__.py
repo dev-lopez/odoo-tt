@@ -22,6 +22,7 @@
         'views/mission_info.xml',
         'views/project_views_inherit.xml',
         'wizard/create_project_views.xml',
+        'report/mission_report.xml',
     ],
     'demo': [ ],
     'installable': True,

@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="action_report_space_ship" model="ir.actions.report">
+            <field name="name">Spaceship</field>
+            <field name="model">space.ship</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">space_mission.report_space_ship_document</field>
+            <field name="report_file">space_mission.report_space_ship</field>
+            <field name="binding_model_id" ref="model_space_ship"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="report_space_ship_document">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>SPACESHIP REPORT: <span t-field='doc.name' /></h2>
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <div class='col-6' title='Administrative'>
+                                    <div t-if="doc.type">
+                                        <strong>Type: </strong>
+                                        <span t-field='doc.type'/>
+                                    </div>
+                                    <div t-if="doc.model">
+                                        <strong>Model: </strong>
+                                        <span t-field='doc.model'/>
+                                    </div>
+                                    <div t-if="doc.captain">
+                                        <strong>Captain: <span t-field='doc.captain'/></strong>
+                                    </div>                                
+                                    <div t-if="doc.crew_size">
+                                        <strong>Crew Size: </strong>
+                                        <span t-field='doc.crew_size'/>
+                                    </div>
+                                </div>
+                                <div class='col-6' title='Technical'>
+                                    <div t-if="doc.length">
+                                        <strong>Length: </strong>
+                                        <span t-field='doc.length'/>
+                                    </div>
+                                    <div t-if="doc.width">
+                                        <strong>Width: </strong>
+                                        <span t-field='doc.width'/>
+                                    </div>
+                                    <div t-if="doc.height">
+                                        <strong>Height: </strong>
+                                        <span t-field='doc.height'/>
+                                    </div>                                
+                                    <div t-if="doc.fuel_type">
+                                        <strong>Fuel Type: </strong>
+                                        <span t-field='doc.fuel_type'/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <h3>Projects</h3>
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <table class='table o_main_table'>
+                                    <thead>
+                                        <tr>
+                                            <th name='th_name'>Mission's Name</th>
+                                            <th name='th_type'>Type</th>
+                                            <th name='th_captain'>Captain</th>
+                                            <th name='th_launch_date'>Lauch</th>
+                                            <th name='th_return_date'>Return</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="doc.mission_ids" t-as="m">
+                                            <tr>
+                                                <td t-if='m.name' name='td_name'>
+                                                    <span t-field='m.name'/>
+                                                </td>
+                                                <td t-if='m.destiny' name='td_destiny'>
+                                                    <span t-field='m.destiny'/>
+                                                </td>                                                
+                                                <td t-if='m.captain_id' name='td_captain_id'>
+                                                    <span t-field='m.captain_id'/>
+                                                </td>                                                
+                                                <td t-if='m.launch_date' name='td_launch_date'>
+                                                    <span t-field='m.launch_date'/>
+                                                </td>                                                
+                                                <td t-if='m.return_date' name='td_return_date'>
+                                                    <span t-field='m.return_date'/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <h3>Crew</h3>
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <table class='table o_main_table'>
+                                    <thead>
+                                        <tr>
+                                            <th name='th_name'>Name</th>
+                                            <th name='th_type'>Email</th>
+                                            <th name='th_captain'>Phone</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="doc.crew_ids" t-as="m">
+                                            <tr>
+                                                <td t-if='m.name' name='td_name'>
+                                                    <span t-field='m.name'/>
+                                                </td>
+                                                <td t-if='m.email' name='td_email'>
+                                                    <span t-field='m.email'/>
+                                                </td>                                                
+                                                <td t-if='m.phone' name='td_phone'>
+                                                    <span t-field='m.phone'/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
