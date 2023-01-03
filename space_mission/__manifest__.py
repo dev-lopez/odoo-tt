@@ -11,7 +11,8 @@
     'version': '1.0.0',
     'license': 'LGPL-3',
     'depends': ['base',
-               'project',],
+               'project',
+               'website',],
 
     'data': [
         'security/space_mission_groups.xml',
@@ -21,6 +22,7 @@
         'views/space_ship_view.xml',
         'views/mission_info.xml',
         'views/project_views_inherit.xml',
+        'views/mission_website_template.xml',
         'wizard/create_project_views.xml',
         'report/mission_report.xml',
     ],

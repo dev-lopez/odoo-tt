@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="mission_website">
+        <t t-call="website.layout">
+            <t t-set="title">Odoo's Missions</t>
+            <div class="oe_structure">
+                <div class="container">
+                    <h1>Missions</h1>
+                    <t t-foreach="missions" t-as="m">
+                        <h3><t t-out="m.id"/> <t t-out="m.name"/></h3>
+                        <p>
+                            Captain:
+                            <span t-field='m.captain_id' />
+                        </p>
+                        <p>
+                            Mission Type:
+                            <span t-field='m.destiny' />
+                        </p>
+                        <strong>Projects</strong>
+                        <t t-foreach="m.project_ids" t-as="p">
+                            <p>
+                                <a t-attf-href="/space_mission/{{slug(p)}}">
+                                <t t-out="p.name"/></a>
+                            </p>
+                            <p>
+                                <i t-field='p.write_date' t-field-options='{"format":"long"}'/>
+                            </p>
+                        </t>
+                        <t t-if="not m.project_ids">
+                            <p>No Active Projects</p>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </t>
+
+    </template>
+
+</odoo>
