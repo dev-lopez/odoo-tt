@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="custom_crm_visit_action" model="ir.actions.act_window">
+        <field name="name">action.custom.crm.visit.view</field>
+        <field name="res_model">custom_crm.visit</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class='oe_view_nocontent_create'>
+                Create your first record
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="custom_crm_visit_menu"
+        name="Custom CRM"
+        sequence="10"/>
+
+    <menuitem
+        id="custom_crm_visit_submenu"
+        name="Operaciones"
+        parent="custom_crm_visit_menu"
+        sequence="0"/>
+
+    <menuitem
+        id="custom_crm_visit_operation_submenu"
+        name="Visitas"
+        action="custom_crm_visit_action"
+        parent="custom_crm_visit_submenu"
+        sequence="1"/>
+
+</odoo>

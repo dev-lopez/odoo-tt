@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="action_report_custom_crm_visit" model="ir.actions.report">
+        <field name="name">Visit</field>
+        <field name="model">custom_crm.visit</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">custom_crm.report_visit_card</field>
+        <field name="report_file">custom_crm.report_visit_card</field>
+        <field name="binding_model_id" ref="model_custom_crm_visit"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_visit_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Visita</h2>
+                        <p>Cliente: 
+                            <span t-field='o.customer.name'/>
+                        </p>
+                        <p>Descripcion: 
+                            <span t-field='o.name'/>
+                        </p>
+                        <p>Fecha: 
+                            <span t-field='o.date' t-options='{"format": "dd/MM/yyyy"}'/>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
